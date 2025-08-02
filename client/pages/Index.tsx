@@ -363,11 +363,11 @@ export default function Index() {
 
                     {/* Photo Section */}
                     <div className="px-6 mb-4">
-                      <div className="w-24 h-24 mx-auto bg-white rounded-full overflow-hidden border-4 border-white/20 shadow-lg">
+                      <div className="w-24 h-24 mx-auto bg-white rounded-full overflow-hidden border-4 border-white/20 shadow-lg transition-all duration-300 hover:border-white/40">
                         {studentData.photo ? (
-                          <img src={studentData.photo} alt="Student" className="w-full h-full object-cover" />
+                          <img src={studentData.photo} alt="Student" className="w-full h-full object-cover transition-all duration-300" />
                         ) : (
-                          <div className="w-full h-full bg-slate-200 flex items-center justify-center">
+                          <div className="w-full h-full bg-slate-200 flex items-center justify-center transition-all duration-300">
                             <Upload className="w-8 h-8 text-slate-400" />
                           </div>
                         )}
