@@ -9,6 +9,8 @@ import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Moon, Sun, Download, RotateCcw, Upload, QrCode, GraduationCap } from "lucide-react";
+import { downloadAsImage, downloadAsPDF } from "@/lib/downloadUtils";
+import { useToast } from "@/components/ui/use-toast";
 
 interface StudentData {
   name: string;
