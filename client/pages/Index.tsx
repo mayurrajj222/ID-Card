@@ -303,10 +303,10 @@ export default function Index() {
             </Card>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 onClick={downloadPDF}
-                className="flex-1 min-w-[140px]"
+                className="flex-1 sm:min-w-[140px]"
                 disabled={isDownloading}
               >
                 <Download className="w-4 h-4 mr-2" />
@@ -315,14 +315,15 @@ export default function Index() {
               <Button
                 onClick={downloadImage}
                 variant="outline"
-                className="flex-1 min-w-[140px]"
+                className="flex-1 sm:min-w-[140px]"
                 disabled={isDownloading}
               >
                 <Download className="w-4 h-4 mr-2" />
                 {isDownloading ? "Downloading..." : "Download Image"}
               </Button>
-              <Button onClick={resetForm} variant="outline" size="icon">
-                <RotateCcw className="w-4 h-4" />
+              <Button onClick={resetForm} variant="outline" className="sm:w-auto">
+                <RotateCcw className="w-4 h-4 sm:mr-0 mr-2" />
+                <span className="sm:hidden">Reset Form</span>
               </Button>
             </div>
           </div>
