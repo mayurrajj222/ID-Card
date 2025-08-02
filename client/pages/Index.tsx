@@ -291,16 +291,16 @@ export default function Index() {
                   </SelectContent>
                 </Select>
                 <div className="grid grid-cols-3 gap-2 mt-4">
-                  <div className={`p-2 border rounded-lg cursor-pointer transition-all ${template === 'modern' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} onClick={() => setTemplate('modern')}>
-                    <div className="w-full h-8 bg-gradient-to-r from-primary to-blue-600 rounded"></div>
+                  <div className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === 'modern' ? 'border-primary bg-primary/5 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'}`} onClick={() => setTemplate('modern')}>
+                    <div className="w-full h-8 bg-gradient-to-r from-primary to-blue-600 rounded transition-all duration-200"></div>
                     <p className="text-xs text-center mt-1">Modern</p>
                   </div>
-                  <div className={`p-2 border rounded-lg cursor-pointer transition-all ${template === 'classic' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} onClick={() => setTemplate('classic')}>
-                    <div className="w-full h-8 bg-gradient-to-r from-slate-600 to-slate-800 rounded"></div>
+                  <div className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === 'classic' ? 'border-primary bg-primary/5 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'}`} onClick={() => setTemplate('classic')}>
+                    <div className="w-full h-8 bg-gradient-to-r from-slate-600 to-slate-800 rounded transition-all duration-200"></div>
                     <p className="text-xs text-center mt-1">Classic</p>
                   </div>
-                  <div className={`p-2 border rounded-lg cursor-pointer transition-all ${template === 'minimal' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`} onClick={() => setTemplate('minimal')}>
-                    <div className="w-full h-8 bg-gray-200 border rounded"></div>
+                  <div className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === 'minimal' ? 'border-primary bg-primary/5 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'}`} onClick={() => setTemplate('minimal')}>
+                    <div className="w-full h-8 bg-gray-200 border rounded transition-all duration-200"></div>
                     <p className="text-xs text-center mt-1">Minimal</p>
                   </div>
                 </div>
