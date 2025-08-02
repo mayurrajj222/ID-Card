@@ -339,11 +339,13 @@ export default function Index() {
               <CardContent className="flex justify-center">
                 <div className="relative">
                   {/* ID Card */}
-                  <div className={`w-80 h-[500px] rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 ${
-                    template === 'modern' ? 'bg-gradient-to-br from-primary via-blue-600 to-purple-600' :
-                    template === 'classic' ? 'bg-gradient-to-br from-slate-700 to-slate-900' :
-                    'bg-white border-2 border-slate-200'
-                  }`}>
+                  <div
+                    id="id-card-preview"
+                    className={`w-80 h-[500px] rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 ${
+                      template === 'modern' ? 'bg-gradient-to-br from-primary via-blue-600 to-purple-600' :
+                      template === 'classic' ? 'bg-gradient-to-br from-slate-700 to-slate-900' :
+                      'bg-white border-2 border-slate-200'
+                    }`}>
                     {/* Header */}
                     <div className={`p-6 text-center ${template === 'minimal' ? 'text-slate-800' : 'text-white'}`}>
                       <div className="flex items-center justify-center mb-2">
