@@ -26,8 +26,10 @@ interface StudentData {
 type IDCardTemplate = 'modern' | 'classic' | 'minimal';
 
 export default function Index() {
+  const { toast } = useToast();
   const [isDark, setIsDark] = useState(false);
   const [template, setTemplate] = useState<IDCardTemplate>('modern');
+  const [isDownloading, setIsDownloading] = useState(false);
   const [studentData, setStudentData] = useState<StudentData>({
     name: "Alex Johnson",
     studentId: "ST2024001",
