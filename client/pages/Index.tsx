@@ -304,13 +304,22 @@ export default function Index() {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3">
-              <Button onClick={downloadPDF} className="flex-1 min-w-[140px]">
+              <Button
+                onClick={downloadPDF}
+                className="flex-1 min-w-[140px]"
+                disabled={isDownloading}
+              >
                 <Download className="w-4 h-4 mr-2" />
-                Download PDF
+                {isDownloading ? "Downloading..." : "Download PDF"}
               </Button>
-              <Button onClick={downloadImage} variant="outline" className="flex-1 min-w-[140px]">
+              <Button
+                onClick={downloadImage}
+                variant="outline"
+                className="flex-1 min-w-[140px]"
+                disabled={isDownloading}
+              >
                 <Download className="w-4 h-4 mr-2" />
-                Download Image
+                {isDownloading ? "Downloading..." : "Download Image"}
               </Button>
               <Button onClick={resetForm} variant="outline" size="icon">
                 <RotateCcw className="w-4 h-4" />
