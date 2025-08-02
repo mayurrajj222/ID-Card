@@ -69,14 +69,60 @@ export default function Index() {
     });
   };
 
-  const downloadPDF = () => {
-    // PDF download functionality will be implemented
-    console.log("Downloading PDF...");
+  const downloadPDF = async () => {
+    if (!studentData.name || !studentData.studentId) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in at least the student name and ID before downloading.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsDownloading(true);
+    try {
+      await downloadAsPDF('id-card-preview', `${studentData.name}-ID-Card`);
+      toast({
+        title: "Success!",
+        description: "ID card PDF downloaded successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Download Failed",
+        description: "There was an error downloading the PDF. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
-  const downloadImage = () => {
-    // Image download functionality will be implemented
-    console.log("Downloading Image...");
+  const downloadImage = async () => {
+    if (!studentData.name || !studentData.studentId) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in at least the student name and ID before downloading.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsDownloading(true);
+    try {
+      await downloadAsImage('id-card-preview', `${studentData.name}-ID-Card`);
+      toast({
+        title: "Success!",
+        description: "ID card image downloaded successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Download Failed",
+        description: "There was an error downloading the image. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   const toggleTheme = () => {
