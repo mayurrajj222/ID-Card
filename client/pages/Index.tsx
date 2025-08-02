@@ -156,8 +156,8 @@ export default function Index() {
         </div>
       </header>
 
-      <div className="container mx-auto px-6 py-8">
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {/* Left Sidebar - Form */}
           <div className="space-y-6">
             <Card className="shadow-lg border-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
