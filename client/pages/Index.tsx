@@ -328,7 +328,7 @@ export default function Index() {
           </div>
 
           {/* Right Side - ID Card Preview */}
-          <div className="lg:sticky lg:top-24 h-fit">
+          <div className="lg:sticky lg:top-24 h-fit order-first lg:order-last">
             <Card className="shadow-xl border-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -341,7 +341,7 @@ export default function Index() {
                   {/* ID Card */}
                   <div
                     id="id-card-preview"
-                    className={`w-80 h-[500px] rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 ${
+                    className={`w-72 sm:w-80 h-[450px] sm:h-[500px] rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 ${
                       template === 'modern' ? 'bg-gradient-to-br from-primary via-blue-600 to-purple-600' :
                       template === 'classic' ? 'bg-gradient-to-br from-slate-700 to-slate-900' :
                       'bg-white border-2 border-slate-200'
