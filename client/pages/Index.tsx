@@ -376,23 +376,23 @@ export default function Index() {
 
                     {/* Student Info */}
                     <div className={`px-6 space-y-3 ${template === 'minimal' ? 'text-slate-800' : 'text-white'}`}>
-                      <div>
+                      <div className="animate-in fade-in slide-in-from-left-2 duration-300">
                         <p className="text-xs opacity-70 uppercase tracking-wide">Name</p>
-                        <p className="font-semibold">{studentData.name || "Student Name"}</p>
+                        <p className="font-semibold transition-all duration-200">{studentData.name || "Student Name"}</p>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
-                        <div>
+                        <div className="animate-in fade-in slide-in-from-left-2 duration-300 delay-75">
                           <p className="text-xs opacity-70 uppercase tracking-wide">ID</p>
-                          <p className="font-mono text-sm">{studentData.studentId || "ID000000"}</p>
+                          <p className="font-mono text-sm transition-all duration-200">{studentData.studentId || "ID000000"}</p>
                         </div>
-                        <div>
+                        <div className="animate-in fade-in slide-in-from-right-2 duration-300 delay-75">
                           <p className="text-xs opacity-70 uppercase tracking-wide">Course</p>
-                          <p className="text-sm">{studentData.course || "Course Name"}</p>
+                          <p className="text-sm transition-all duration-200">{studentData.course || "Course Name"}</p>
                         </div>
                       </div>
-                      <div>
+                      <div className="animate-in fade-in slide-in-from-left-2 duration-300 delay-150">
                         <p className="text-xs opacity-70 uppercase tracking-wide">Email</p>
-                        <p className="text-xs">{studentData.email || "email@university.edu"}</p>
+                        <p className="text-xs transition-all duration-200">{studentData.email || "email@university.edu"}</p>
                       </div>
                     </div>
 
