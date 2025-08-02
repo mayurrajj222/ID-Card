@@ -397,15 +397,15 @@ export default function Index() {
                     </div>
 
                     {/* QR Code */}
-                    <div className="absolute bottom-6 right-6">
-                      <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
-                        <QrCode className="w-12 h-12 text-slate-800" />
+                    <div className="absolute bottom-6 right-6 animate-in fade-in duration-500 delay-300">
+                      <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+                        <QrCode className="w-12 h-12 text-slate-800 animate-pulse" />
                       </div>
                     </div>
 
                     {/* Template Badge */}
-                    <div className="absolute top-6 right-6">
-                      <Badge variant="secondary" className="text-xs bg-white/20 text-white border-white/30">
+                    <div className="absolute top-6 right-6 animate-in fade-in slide-in-from-top-2 duration-300">
+                      <Badge variant="secondary" className="text-xs bg-white/20 text-white border-white/30 backdrop-blur-sm transition-all duration-200 hover:bg-white/30">
                         {template.charAt(0).toUpperCase() + template.slice(1)}
                       </Badge>
                     </div>
