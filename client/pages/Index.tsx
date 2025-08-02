@@ -3,12 +3,26 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Moon, Sun, Download, RotateCcw, Upload, QrCode, GraduationCap } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  Download,
+  RotateCcw,
+  Upload,
+  QrCode,
+  GraduationCap,
+} from "lucide-react";
 import { downloadAsImage, downloadAsPDF } from "@/lib/downloadUtils";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -23,12 +37,12 @@ interface StudentData {
   phone: string;
 }
 
-type IDCardTemplate = 'modern' | 'classic' | 'minimal';
+type IDCardTemplate = "modern" | "classic" | "minimal";
 
 export default function Index() {
   const { toast } = useToast();
   const [isDark, setIsDark] = useState(false);
-  const [template, setTemplate] = useState<IDCardTemplate>('modern');
+  const [template, setTemplate] = useState<IDCardTemplate>("modern");
   const [isDownloading, setIsDownloading] = useState(false);
   const [studentData, setStudentData] = useState<StudentData>({
     name: "Alex Johnson",
@@ -38,11 +52,11 @@ export default function Index() {
     photo: null,
     emergencyContact: "+1 (555) 123-4567",
     email: "alex.johnson@university.edu",
-    phone: "+1 (555) 987-6543"
+    phone: "+1 (555) 987-6543",
   });
 
   const handleInputChange = (field: keyof StudentData, value: string) => {
-    setStudentData(prev => ({ ...prev, [field]: value }));
+    setStudentData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +64,10 @@ export default function Index() {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setStudentData(prev => ({ ...prev, photo: e.target?.result as string }));
+        setStudentData((prev) => ({
+          ...prev,
+          photo: e.target?.result as string,
+        }));
       };
       reader.readAsDataURL(file);
     }
@@ -65,7 +82,7 @@ export default function Index() {
       photo: null,
       emergencyContact: "",
       email: "",
-      phone: ""
+      phone: "",
     });
   };
 
@@ -73,7 +90,8 @@ export default function Index() {
     if (!studentData.name || !studentData.studentId) {
       toast({
         title: "Missing Information",
-        description: "Please fill in at least the student name and ID before downloading.",
+        description:
+          "Please fill in at least the student name and ID before downloading.",
         variant: "destructive",
       });
       return;
@@ -81,7 +99,7 @@ export default function Index() {
 
     setIsDownloading(true);
     try {
-      await downloadAsPDF('id-card-preview', `${studentData.name}-ID-Card`);
+      await downloadAsPDF("id-card-preview", `${studentData.name}-ID-Card`);
       toast({
         title: "Success!",
         description: "ID card PDF downloaded successfully.",
@@ -89,7 +107,8 @@ export default function Index() {
     } catch (error) {
       toast({
         title: "Download Failed",
-        description: "There was an error downloading the PDF. Please try again.",
+        description:
+          "There was an error downloading the PDF. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -101,7 +120,8 @@ export default function Index() {
     if (!studentData.name || !studentData.studentId) {
       toast({
         title: "Missing Information",
-        description: "Please fill in at least the student name and ID before downloading.",
+        description:
+          "Please fill in at least the student name and ID before downloading.",
         variant: "destructive",
       });
       return;
@@ -109,7 +129,7 @@ export default function Index() {
 
     setIsDownloading(true);
     try {
-      await downloadAsImage('id-card-preview', `${studentData.name}-ID-Card`);
+      await downloadAsImage("id-card-preview", `${studentData.name}-ID-Card`);
       toast({
         title: "Success!",
         description: "ID card image downloaded successfully.",
@@ -117,7 +137,8 @@ export default function Index() {
     } catch (error) {
       toast({
         title: "Download Failed",
-        description: "There was an error downloading the image. Please try again.",
+        description:
+          "There was an error downloading the image. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -127,11 +148,13 @@ export default function Index() {
 
   const toggleTheme = () => {
     setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle("dark");
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 transition-all duration-300`}>
+    <div
+      className={`min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 transition-all duration-300`}
+    >
       {/* Header */}
       <header className="border-b bg-white/70 dark:bg-slate-900/70 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
@@ -141,8 +164,12 @@ export default function Index() {
                 <GraduationCap className="w-4 h-4 sm:w-6 sm:h-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-lg sm:text-xl font-semibold text-foreground">Student ID Generator</h1>
-                <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">Create professional student ID cards</p>
+                <h1 className="text-lg sm:text-xl font-semibold text-foreground">
+                  Student ID Generator
+                </h1>
+                <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
+                  Create professional student ID cards
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2 sm:gap-4">
@@ -174,7 +201,9 @@ export default function Index() {
                     <Input
                       id="name"
                       value={studentData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("name", e.target.value)
+                      }
                       placeholder="Enter full name"
                       className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                     />
@@ -184,7 +213,9 @@ export default function Index() {
                     <Input
                       id="studentId"
                       value={studentData.studentId}
-                      onChange={(e) => handleInputChange('studentId', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("studentId", e.target.value)
+                      }
                       placeholder="Enter student ID"
                       className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                     />
@@ -196,7 +227,9 @@ export default function Index() {
                   <Input
                     id="college"
                     value={studentData.college}
-                    onChange={(e) => handleInputChange('college', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("college", e.target.value)
+                    }
                     placeholder="Enter college/university name"
                     className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                   />
@@ -207,7 +240,9 @@ export default function Index() {
                   <Input
                     id="course"
                     value={studentData.course}
-                    onChange={(e) => handleInputChange('course', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("course", e.target.value)
+                    }
                     placeholder="Enter course or program"
                     className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                   />
@@ -220,7 +255,9 @@ export default function Index() {
                       id="email"
                       type="email"
                       value={studentData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
                       placeholder="student@university.edu"
                       className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                     />
@@ -230,7 +267,9 @@ export default function Index() {
                     <Input
                       id="phone"
                       value={studentData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("phone", e.target.value)
+                      }
                       placeholder="+1 (555) 123-4567"
                       className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                     />
@@ -242,7 +281,9 @@ export default function Index() {
                   <Input
                     id="emergency"
                     value={studentData.emergencyContact}
-                    onChange={(e) => handleInputChange('emergencyContact', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("emergencyContact", e.target.value)
+                    }
                     placeholder="Emergency contact number"
                     className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
                   />
@@ -280,7 +321,10 @@ export default function Index() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <Select value={template} onValueChange={(value: IDCardTemplate) => setTemplate(value)}>
+                <Select
+                  value={template}
+                  onValueChange={(value: IDCardTemplate) => setTemplate(value)}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Choose a template" />
                   </SelectTrigger>
@@ -291,15 +335,24 @@ export default function Index() {
                   </SelectContent>
                 </Select>
                 <div className="grid grid-cols-3 gap-2 mt-4">
-                  <div className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === 'modern' ? 'border-primary bg-primary/5 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'}`} onClick={() => setTemplate('modern')}>
+                  <div
+                    className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === "modern" ? "border-primary bg-primary/5 shadow-md" : "border-border hover:border-primary/50 hover:shadow-sm"}`}
+                    onClick={() => setTemplate("modern")}
+                  >
                     <div className="w-full h-8 bg-gradient-to-r from-primary to-blue-600 rounded transition-all duration-200"></div>
                     <p className="text-xs text-center mt-1">Modern</p>
                   </div>
-                  <div className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === 'classic' ? 'border-primary bg-primary/5 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'}`} onClick={() => setTemplate('classic')}>
+                  <div
+                    className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === "classic" ? "border-primary bg-primary/5 shadow-md" : "border-border hover:border-primary/50 hover:shadow-sm"}`}
+                    onClick={() => setTemplate("classic")}
+                  >
                     <div className="w-full h-8 bg-gradient-to-r from-slate-600 to-slate-800 rounded transition-all duration-200"></div>
                     <p className="text-xs text-center mt-1">Classic</p>
                   </div>
-                  <div className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === 'minimal' ? 'border-primary bg-primary/5 shadow-md' : 'border-border hover:border-primary/50 hover:shadow-sm'}`} onClick={() => setTemplate('minimal')}>
+                  <div
+                    className={`p-2 border rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 ${template === "minimal" ? "border-primary bg-primary/5 shadow-md" : "border-border hover:border-primary/50 hover:shadow-sm"}`}
+                    onClick={() => setTemplate("minimal")}
+                  >
                     <div className="w-full h-8 bg-gray-200 border rounded transition-all duration-200"></div>
                     <p className="text-xs text-center mt-1">Minimal</p>
                   </div>
@@ -326,7 +379,11 @@ export default function Index() {
                 <Download className="w-4 h-4 mr-2" />
                 {isDownloading ? "Downloading..." : "Download Image"}
               </Button>
-              <Button onClick={resetForm} variant="outline" className="sm:w-auto">
+              <Button
+                onClick={resetForm}
+                variant="outline"
+                className="sm:w-auto"
+              >
                 <RotateCcw className="w-4 h-4 sm:mr-0 mr-2" />
                 <span className="sm:hidden">Reset Form</span>
               </Button>
@@ -348,24 +405,37 @@ export default function Index() {
                   <div
                     id="id-card-preview"
                     className={`w-72 sm:w-80 h-[450px] sm:h-[500px] rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 ${
-                      template === 'modern' ? 'bg-gradient-to-br from-primary via-blue-600 to-purple-600' :
-                      template === 'classic' ? 'bg-gradient-to-br from-slate-700 to-slate-900' :
-                      'bg-white border-2 border-slate-200'
-                    }`}>
+                      template === "modern"
+                        ? "bg-gradient-to-br from-primary via-blue-600 to-purple-600"
+                        : template === "classic"
+                          ? "bg-gradient-to-br from-slate-700 to-slate-900"
+                          : "bg-white border-2 border-slate-200"
+                    }`}
+                  >
                     {/* Header */}
-                    <div className={`p-6 text-center ${template === 'minimal' ? 'text-slate-800' : 'text-white'}`}>
+                    <div
+                      className={`p-6 text-center ${template === "minimal" ? "text-slate-800" : "text-white"}`}
+                    >
                       <div className="flex items-center justify-center mb-2">
                         <GraduationCap className="w-8 h-8" />
                       </div>
-                      <h3 className="font-semibold text-lg">{studentData.college || "University Name"}</h3>
-                      <p className="text-sm opacity-90">Student Identification Card</p>
+                      <h3 className="font-semibold text-lg">
+                        {studentData.college || "University Name"}
+                      </h3>
+                      <p className="text-sm opacity-90">
+                        Student Identification Card
+                      </p>
                     </div>
 
                     {/* Photo Section */}
                     <div className="px-6 mb-4">
                       <div className="w-24 h-24 mx-auto bg-white rounded-full overflow-hidden border-4 border-white/20 shadow-lg transition-all duration-300 hover:border-white/40">
                         {studentData.photo ? (
-                          <img src={studentData.photo} alt="Student" className="w-full h-full object-cover transition-all duration-300" />
+                          <img
+                            src={studentData.photo}
+                            alt="Student"
+                            className="w-full h-full object-cover transition-all duration-300"
+                          />
                         ) : (
                           <div className="w-full h-full bg-slate-200 flex items-center justify-center transition-all duration-300">
                             <Upload className="w-8 h-8 text-slate-400" />
@@ -375,24 +445,42 @@ export default function Index() {
                     </div>
 
                     {/* Student Info */}
-                    <div className={`px-6 space-y-3 ${template === 'minimal' ? 'text-slate-800' : 'text-white'}`}>
+                    <div
+                      className={`px-6 space-y-3 ${template === "minimal" ? "text-slate-800" : "text-white"}`}
+                    >
                       <div className="animate-in fade-in slide-in-from-left-2 duration-300">
-                        <p className="text-xs opacity-70 uppercase tracking-wide">Name</p>
-                        <p className="font-semibold transition-all duration-200">{studentData.name || "Student Name"}</p>
+                        <p className="text-xs opacity-70 uppercase tracking-wide">
+                          Name
+                        </p>
+                        <p className="font-semibold transition-all duration-200">
+                          {studentData.name || "Student Name"}
+                        </p>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="animate-in fade-in slide-in-from-left-2 duration-300 delay-75">
-                          <p className="text-xs opacity-70 uppercase tracking-wide">ID</p>
-                          <p className="font-mono text-sm transition-all duration-200">{studentData.studentId || "ID000000"}</p>
+                          <p className="text-xs opacity-70 uppercase tracking-wide">
+                            ID
+                          </p>
+                          <p className="font-mono text-sm transition-all duration-200">
+                            {studentData.studentId || "ID000000"}
+                          </p>
                         </div>
                         <div className="animate-in fade-in slide-in-from-right-2 duration-300 delay-75">
-                          <p className="text-xs opacity-70 uppercase tracking-wide">Course</p>
-                          <p className="text-sm transition-all duration-200">{studentData.course || "Course Name"}</p>
+                          <p className="text-xs opacity-70 uppercase tracking-wide">
+                            Course
+                          </p>
+                          <p className="text-sm transition-all duration-200">
+                            {studentData.course || "Course Name"}
+                          </p>
                         </div>
                       </div>
                       <div className="animate-in fade-in slide-in-from-left-2 duration-300 delay-150">
-                        <p className="text-xs opacity-70 uppercase tracking-wide">Email</p>
-                        <p className="text-xs transition-all duration-200">{studentData.email || "email@university.edu"}</p>
+                        <p className="text-xs opacity-70 uppercase tracking-wide">
+                          Email
+                        </p>
+                        <p className="text-xs transition-all duration-200">
+                          {studentData.email || "email@university.edu"}
+                        </p>
                       </div>
                     </div>
 
@@ -405,7 +493,10 @@ export default function Index() {
 
                     {/* Template Badge */}
                     <div className="absolute top-6 right-6 animate-in fade-in slide-in-from-top-2 duration-300">
-                      <Badge variant="secondary" className="text-xs bg-white/20 text-white border-white/30 backdrop-blur-sm transition-all duration-200 hover:bg-white/30">
+                      <Badge
+                        variant="secondary"
+                        className="text-xs bg-white/20 text-white border-white/30 backdrop-blur-sm transition-all duration-200 hover:bg-white/30"
+                      >
                         {template.charAt(0).toUpperCase() + template.slice(1)}
                       </Badge>
                     </div>
