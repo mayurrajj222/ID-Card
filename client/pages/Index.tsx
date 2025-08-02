@@ -255,13 +255,18 @@ export default function Index() {
                       type="file"
                       accept="image/*"
                       onChange={handlePhotoUpload}
-                      className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
+                      className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/90 transition-all"
                     />
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="shrink-0">
                       <Upload className="w-4 h-4 mr-2" />
                       Upload
                     </Button>
                   </div>
+                  {studentData.photo && (
+                    <div className="text-sm text-green-600 dark:text-green-400 animate-in fade-in duration-300">
+                      ✓ Photo uploaded successfully
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
