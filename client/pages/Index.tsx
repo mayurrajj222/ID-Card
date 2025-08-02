@@ -134,22 +134,22 @@ export default function Index() {
     <div className={`min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 transition-all duration-300`}>
       {/* Header */}
       <header className="border-b bg-white/70 dark:bg-slate-900/70 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
-                <GraduationCap className="w-6 h-6 text-primary-foreground" />
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-lg">
+                <GraduationCap className="w-4 h-4 sm:w-6 sm:h-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-xl font-semibold text-foreground">Student ID Generator</h1>
-                <p className="text-sm text-muted-foreground">Create professional student ID cards</p>
+                <h1 className="text-lg sm:text-xl font-semibold text-foreground">Student ID Generator</h1>
+                <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">Create professional student ID cards</p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Sun className="w-4 h-4" />
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Sun className="w-3 h-3 sm:w-4 sm:h-4" />
                 <Switch checked={isDark} onCheckedChange={toggleTheme} />
-                <Moon className="w-4 h-4" />
+                <Moon className="w-3 h-3 sm:w-4 sm:h-4" />
               </div>
             </div>
           </div>
